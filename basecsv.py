@@ -76,3 +76,30 @@ def saveSalesList(salesList :list[dict]):
     except: print("error updating sales list")
 
 # TODO: tengo 3 veces la misma !"#" función, tengo que buscar la forma de pasar un argumento y solo dejar 1 función
+
+#--------------------------------------------------------------------------------------------------------------------
+def loadNuevoInventario(archivo):
+    try:
+        with open(archivo, "r", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+            nuevoInventario = list(reader)
+            return nuevoInventario
+    except:
+            print("error")
+            return None
+    
+
+def sobrescribirInventario(nuevoInventario):
+
+    inventario.clear()
+    inventario.extend(nuevoInventario)
+    saveInventario(inventario)
+    return inventario
+
+def exportarArchivo(archivo):
+    with open(archivo, "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file,fieldnames=["title","author","category","price","quantity"])
+        writer.writeheader()
+        writer.writerows(inventario)
+   
+    

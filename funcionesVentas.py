@@ -105,6 +105,7 @@ def totalSells():
     print(f"Total books sold: {totalBooksSold}")
     print(f"Todal profit: {totalProfit}\n")
 
+# TODO: refactorizar la estructura de las ventas, como las ventas no registran autor, me es muy difícil hacer un set/dict con las ventas por autor
 
 
 
