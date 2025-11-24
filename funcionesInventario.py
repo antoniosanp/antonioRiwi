@@ -157,7 +157,7 @@ def deleteItem(title: str):
 
 def deleteItemMenu():
     print("delete a book")
-    title = validarNombre(title)
+    title = validarNombre("title")
     deleteItem(title)
 
 #------------------------------------------------------------------------------------------

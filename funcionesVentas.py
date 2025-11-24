@@ -50,7 +50,7 @@ def addNewSale(sale:dict):
 def newSaleMenu():
 
     print("new sale ")
-    client = validarNombreClient("client")
+    client = validarNombreClient("name")
     book = validarNombre("title")
     amount = validarEntero()
 
@@ -62,3 +62,27 @@ def newSaleMenu():
     
     addNewSale(newSale)
 
+def showSales():
+    for sale in salesList:
+        print(f"Book: {sale['title']:<20} | amount: {sale['amout']:<8} | total: {sale['total']:<10} | client: {sale['client']}")
+
+def salesMenu():
+    print("\n------------------------------------------Sales Module......................................\n")
+    while True:
+        print("1: Register new sale")
+        print("2: Sales history")
+        print("3: Top bestsellers" )
+        print("4: Exit")
+
+        opcion = input("choose an option: ")
+
+        match opcion:
+            case "1":
+                newSaleMenu()
+            case "2":
+                showSales()
+            case "3":
+                print("aun no")
+            case "4":
+                break
+            case _: print("invalid option")

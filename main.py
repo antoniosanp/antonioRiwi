@@ -1,5 +1,5 @@
 from menuInventario import menuInventario
-from funcionesVentas import newSaleMenu
+from funcionesVentas import salesMenu
 from funcionesClientes import clietMenu
 
 print("\nWellcome to Riwi's library")
@@ -17,7 +17,7 @@ while True:
         case "2":
             clietMenu()
         case "3":
-            newSaleMenu()
+            salesMenu()
         case "4":
             print("thanks for visiting us"); break
         case _:
