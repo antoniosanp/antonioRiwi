@@ -72,6 +72,11 @@ def addItemMenu():
 #---------------------------------------------------------------------------------------
 #-----------------------Leer Producto---------------------------------------------------
 
+
+def printBook(item: dict):
+    print(f"title: {item['title'] :< 20} | author: {item['author'] :< 20} | category: {item['category'] :< 20} | price: {item['price'] :< 10} | quantity {item['quantity']}")
+
+
 def searchItemMenu():
     print("sarch a book: ")
     titulo = validarNombre("title")
@@ -82,10 +87,15 @@ def searchItemMenu():
         print(f"there is no book: {titulo}")
 
     else:
-        return
+        printBook(encontrado)
 
-def printBook(item: dict):
-    print(f"title: {item["title"] :< 20} | author: {item["author"] :< 20} | ")
+def showInventario():
+    for item in inventario:
+        printBook(item)
+
+#------------------------------------------------------------------------------------
+#----------------------Modificar Producto--------------------------------------------
+
 
 
 
