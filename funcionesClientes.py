@@ -78,15 +78,19 @@ def clietMenu():
         print("3: exit")
 
         opcion = input("choose an option: ")
+        saltoDeLinea()
 
         match opcion:
             case "1":
                 addClientMenu()
+                saltoDeLinea()
             case "2":
                 showClientList()
+                saltoDeLinea()
             case "3":
-                break
+                saltoDeLinea(); break
+            
             case _:
-                print("invalid option")
+                print("invalid option"); saltoDeLinea()
 
 #clietMenu()

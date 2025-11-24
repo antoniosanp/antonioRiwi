@@ -2,6 +2,10 @@ import csv
 
 #---------------------------permanencia inventario------------------------------
 
+
+def saltoDeLinea():
+    print("\n---------------------------------------------------------------------\n")
+
 def loadInventario() -> list[dict]:
     try:
         with open("inventario.csv", "r", encoding="utf-8") as file:

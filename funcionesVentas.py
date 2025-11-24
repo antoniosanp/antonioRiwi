@@ -9,7 +9,7 @@ def createNewSale(cliente: dict, book: dict, price: float, amout :int) -> dict:
     newSale = {
         "client" : client,
         "title" : title,
-        "amout" : amout,
+        "amout" : amout,  # si me da tiempo, hago la correción por amount
         "total" : amout*price
     }
 
@@ -66,23 +66,76 @@ def showSales():
     for sale in salesList:
         print(f"Book: {sale['title']:<20} | amount: {sale['amout']:<8} | total: {sale['total']:<10} | client: {sale['client']}")
 
+#-----------------------------------------------------------------------------------------------------------
+#------------------------------------Funciones para Bestsellers---------------------------------------------
+
+def bestSellers():
+    bestSell = {}
+
+    for sale in salesList:
+        book = sale['title']
+        amount = sale['amout']
+        if book not in bestSell:
+            bestSell[book] = 0
+        bestSell[book] = int(bestSell[book])
+        bestSell[book] += int(amount)
+    sortedBySells = dict(sorted(bestSell.items(), key=lambda item: item[1], reverse=True))
+
+    if len(sortedBySells) >= 3:
+        contador = 1
+        for  key, value in sortedBySells.items():
+            print(f"{contador}:  Book: {key} | Sells: {value}   ")
+            contador += 1
+            if contador >= 4: break
+        print("\n----------------------------------------")
+    else: print("there are not enough books for statistics")
+
+def totalSells():
+    totalBooks = len(inventario)
+    totalBooksSold = 0
+    totalProfit = 0
+
+    for sale in salesList:
+        totalBooksSold += int(sale['amout'])
+        totalProfit += float(sale['total'])
+    
+    print("Sales Inform: \n")
+
+    print(f"Unic Books: {totalBooks} ")
+    print(f"Total books sold: {totalBooksSold}")
+    print(f"Todal profit: {totalProfit}\n")
+
+
+
+
+   
+
+
 def salesMenu():
     print("\n------------------------------------------Sales Module......................................\n")
     while True:
         print("1: Register new sale")
         print("2: Sales history")
         print("3: Top bestsellers" )
-        print("4: Exit")
+        print("4: Total sales")
+        print("5: Exit")
 
         opcion = input("choose an option: ")
+        saltoDeLinea()
 
         match opcion:
             case "1":
                 newSaleMenu()
+                saltoDeLinea()
             case "2":
                 showSales()
+                saltoDeLinea()
             case "3":
-                print("aun no")
+                bestSellers()
+                saltoDeLinea()
             case "4":
-                break
-            case _: print("invalid option")
+                totalSells()
+                saltoDeLinea()
+            case "5":
+                saltoDeLinea(); break
+            case _: print("invalid option"); saltoDeLinea()
