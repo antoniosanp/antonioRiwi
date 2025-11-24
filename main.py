@@ -1,4 +1,4 @@
-from funciones import addItemMenu, updateItemMenu, searchItemMenu, showInventario,deleteItemMenu
+from funcionesInventario import addItemMenu, updateItemMenu, searchItemMenu, showInventario,deleteItemMenu
 
 while True:
     print("1: add book")

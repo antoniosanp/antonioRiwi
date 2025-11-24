@@ -1,4 +1,5 @@
 import csv
+
 #---------------------------permanencia inventario------------------------------
 
 def loadInventario() -> list[dict]:
@@ -23,7 +24,7 @@ def saveInventario(inventario : list[dict]):
                 writer.writerows(inventario)
     except: print("error updating inventory")
 
-#-----------------------------permanencia clientes-----------------------------
+#-----------------------------Permanencia clientes-----------------------------
 def loadClientList() -> list[dict]:
     try:
         with open("clientList.csv", "r", encoding="utf-8") as file:
@@ -45,3 +46,29 @@ def saveClientList(clientList :list[dict]):
                 writer.writeheader()
                 writer.writerows(clientList)
     except: print("error updating client list")
+
+#-----------------------Permanencia Ventas-------------------------------------------
+
+def loadSalesList() -> list[dict]:
+    try:
+        with open("salesList.csv", "r", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+            salesList = list(reader)         
+    except:
+        salesList = []
+    return salesList
+
+salesList = loadSalesList()
+
+
+def saveSalesList(salesList :list[dict]):
+    try:
+        with open("salesList.csv", "w", newline="", encoding="utf-8") as file:
+            if salesList:
+                fields = salesList[0].keys()
+                writer = csv.DictWriter(file, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows(salesList)
+    except: print("error updating sales list")
+
+# TODO: tengo 3 veces la misma !"#" función, tengo que buscar la forma de pasar un argumento y solo dejar 1 función

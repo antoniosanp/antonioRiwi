@@ -70,3 +70,22 @@ def showClientList():
 #----------------------Modificar Producto--------------------------------------------
 
 
+def clietMenu():
+    while True:
+        print("1: add new client ")
+        print("2: client list")
+        print("3: exit")
+
+        opcion = input("choose an option: ")
+
+        match opcion:
+            case "1":
+                addClientMenu()
+            case "2":
+                showClientList()
+            case "3":
+                break
+            case _:
+                print("invalid option")
+
+#clietMenu()
