@@ -1,27 +1,26 @@
-from funcionesInventario import addItemMenu, updateItemMenu, searchItemMenu, showInventario,deleteItemMenu
+from menuInventario import menuInventario
+from funcionesVentas import newSaleMenu
+from funcionesClientes import clietMenu
 
+print("\nWellcome to Riwi's library")
 while True:
-    print("1: add book")
-    print("2: update book")
-    print("3: delete book")
-    print("4: search book")
-    print("5: show all books")
-    print("6: exit")
+    print("1: Books Module")
+    print("2: Client Module")
+    print("3: Sales Module")
+    print("4: exit" )
+
     opcion = input("choose an option: ")
 
     match opcion:
         case "1":
-            addItemMenu()
+            menuInventario()
         case "2":
-            updateItemMenu()
+            clietMenu()
         case "3":
-            deleteItemMenu()
+            newSaleMenu()
         case "4":
-            searchItemMenu()
-        case "5":
-            showInventario()
-        case "6":
-            break
-        case _: print("Invalid option")
-    
-    
+            print("thanks for visiting us"); break
+        case _:
+            "invalid option"
+
+

@@ -2,9 +2,6 @@ from basecsv import *
 from funcionesClientes import *
 from funcionesInventario import *
 
-def newId() -> int:
-    _id = len(clientList) + 1
-    return _id #como es un historial, nunca voy a borrar nada, no me preocupo de que un id quede raro
 
 def createNewSale(cliente: dict, book: dict, price: float, amout :int) -> dict:
     client = cliente['name']
@@ -42,19 +39,16 @@ def calculateNewSale(client:str,title:str,amout:int):
     return createNewSale(cliente,book,normalPrice,amout)
 
 def addNewSale(sale:dict):
-    _id = newId()
-    Nsale={
-        _id : sale
-    }
-    salesList.append(Nsale)
+
+    salesList.append(sale)
+    print(sale)
     saveSalesList(salesList)
     saveInventario(inventario)
 
 #-----------------------------------------------------------------------------------------------------
 
 def newSaleMenu():
-    showClientList()
-    showInventario()
+
     print("new sale ")
     client = validarNombreClient("client")
     book = validarNombre("title")
@@ -68,4 +62,3 @@ def newSaleMenu():
     
     addNewSale(newSale)
 
-newSaleMenu()

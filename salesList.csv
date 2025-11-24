@@ -1,2 +1,4 @@
-6
-"{'client': 'jacobo', 'title': 'crimen y castigo', 'amout': 4, 'total': 23997.6}"
+client,title,amout,total
+pedro,crimen y castigo,11,109989.0
+bob,el fugitivo,11,35200.0
+perro loco,el fugitivo,50,100000.0
