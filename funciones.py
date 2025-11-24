@@ -14,7 +14,7 @@ def validarNombre(nombre:str) -> str:
 def validarEntero() -> int:
     while True:
         try:
-            val = int(input("enter quantity"))
+            val = int(input("enter quantity: "))
             if val > 0:
                 return val
             else: print("quantity must be positive"); continue
@@ -24,7 +24,7 @@ def validarEntero() -> int:
 def validarFloat() -> float:
     while True:
         try:
-            val = float(input("enter value"))
+            val = float(input("enter value: "))
             if val > 0:
                 return val
             else: print("value must be positive"); continue
@@ -74,7 +74,7 @@ def addItemMenu():
 
 
 def printBook(item: dict):
-    print(f"title: {item['title'] :< 20} | author: {item['author'] :< 20} | category: {item['category'] :< 20} | price: {item['price'] :< 10} | quantity {item['quantity']}")
+    print(f"title: {item['title']:<20} | author: {item['author']:<20} | category: {item['category']:<20} | price: {item['price']:<10} | quantity {item['quantity']}")
 
 
 def searchItemMenu():
