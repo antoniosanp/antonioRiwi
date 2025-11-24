@@ -144,6 +144,22 @@ def updateItemMenu():
 #-------------------------------------------------------------------------------------------
 #------------------------Eliminar Producto--------------------------------------------------
 
+def deleteItem(title: str):
+    item = findItem(title)
+    if item:
+        inventario.remove(item)
+        print(f"book {title} removed")
+        return
+    else: print(f"there ir no book: {title}")
+
+def deleteItemMenu():
+    print("delete a book")
+    title = validarNombre(title)
+    deleteItem(title)
+
+#------------------------------------------------------------------------------------------
+
+
 
 
 
