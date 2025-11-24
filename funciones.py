@@ -56,6 +56,7 @@ def addItem(_titulo:str,_autor:str, _categoria:str, _precio: float, _cantidad: i
         item = createItem(_titulo,_autor,_categoria,_precio,_cantidad)
         inventario.append(item)
         print("succes")
+        saveInventario(inventario)
         return
     print("error"); return
 
@@ -109,34 +110,35 @@ def updateItem(item : dict, _author = None , _category = None, _price = None, _q
 
     print("Book updated: ")
     printBook(item)
+    saveInventario(inventario)
 
 def updateItemMenu():
 
-    printBook("update a book")
+    print("update a book")
     title = validarNombre("title")
     item = findItem(title)
     if not item:
         print(f"there is not book: {title}")
         return
 
-    opcion = input(f"update author (y/s)")
+    opcion = input(f"update author (y/n): ")
     if opcion == "y" or opcion == "Y":
         author = validarNombre("author")
     else: author = None
 
-    opcion = input(f"update category")
+    opcion = input(f"update category (y/n): ")
     if opcion == "y" or opcion == "Y":
         category = validarNombre("category")
     else: category = None
     
-    opcion = input(f"update price")
+    opcion = input(f"update price (y/n): ")
     if opcion == "y" or opcion == "Y":
-        price = validarFloat
+        price = validarFloat()
     else: price = None
 
-    opcion = input(f"update quantity")
+    opcion = input(f"update quantity (y/n): ")
     if opcion == "y" or opcion == "Y":
-        quantity = validarEntero
+        quantity = validarEntero()
     else: quantity = None
 
     updateItem(item,author,category,price,quantity)
@@ -149,6 +151,7 @@ def deleteItem(title: str):
     if item:
         inventario.remove(item)
         print(f"book {title} removed")
+        saveInventario(inventario)
         return
     else: print(f"there ir no book: {title}")
 
