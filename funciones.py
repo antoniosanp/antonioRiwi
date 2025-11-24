@@ -96,6 +96,54 @@ def showInventario():
 #------------------------------------------------------------------------------------
 #----------------------Modificar Producto--------------------------------------------
 
+def updateItem(item : dict, _author = None , _category = None, _price = None, _quantity = None):
+
+    if _author:
+        item['author'] = _author
+    if _category:
+        item['categoty'] = _category
+    if _price:
+        item['price'] = _price
+    if _quantity:
+        item['quantity'] = _quantity
+
+    print("Book updated: ")
+    printBook(item)
+
+def updateItemMenu():
+
+    printBook("update a book")
+    title = validarNombre("title")
+    item = findItem(title)
+    if not item:
+        print(f"there is not book: {title}")
+        return
+
+    opcion = input(f"update author (y/s)")
+    if opcion == "y" or opcion == "Y":
+        author = validarNombre("author")
+    else: author = None
+
+    opcion = input(f"update category")
+    if opcion == "y" or opcion == "Y":
+        category = validarNombre("category")
+    else: category = None
+    
+    opcion = input(f"update price")
+    if opcion == "y" or opcion == "Y":
+        price = validarFloat
+    else: price = None
+
+    opcion = input(f"update quantity")
+    if opcion == "y" or opcion == "Y":
+        quantity = validarEntero
+    else: quantity = None
+
+    updateItem(item,author,category,price,quantity)
+    
+#-------------------------------------------------------------------------------------------
+#------------------------Eliminar Producto--------------------------------------------------
+
 
 
 
